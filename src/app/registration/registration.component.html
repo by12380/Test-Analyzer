@@ -1,0 +1,26 @@
+<div class="text-center">
+    <form #f="ngForm" class="form-signin" (ngSubmit)="validate(f.value)">
+        <h1 class="h3 mb-3 font-weight-normal">Please enter your information</h1>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name" required ngModel #firstName="ngModel" name="firstName">
+            <div class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid">
+              First name required
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required ngModel #lastName="ngModel" name="lastName">
+            <div class="alert alert-danger" *ngIf="lastName.touched && !lastName.valid">
+              Last name required
+            </div>
+          </div>
+        </div>
+        <div>
+          <input type="text" class="form-control" id="lastName" placeholder="Email" required email ngModel #email="ngModel" name="email">
+          <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+            Please enter valid email
+          </div>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block mt-3" type="submit" [disabled]="!f.valid">Next</button>
+      </form>
+</div>
