@@ -61,9 +61,6 @@ export class FormService {
     }
     
     
-
-    
-    
     private _actAnswerKeys : string[];
     public get actAnswerKeys() : string[] {
         return this._actAnswerKeys;
@@ -73,16 +70,16 @@ export class FormService {
     }
 
     
-    private _type : string;
-    public get type() : string {
-        return this._type;
+    private _link : string;
+    public get link() : string {
+        return this._link;
     }
-    public set type(v : string) {
-        this._type = v;
+    public set link(v : string) {
+        this._link = v;
     }
     
-    
-    
+
+        
     
 
 }

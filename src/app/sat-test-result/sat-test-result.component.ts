@@ -37,9 +37,9 @@ export class SatTestResultComponent implements OnInit {
       this.router.navigateByUrl('/');
     }
     else {
-      this.type = this.formService.type;
-      this.form = this.formService.testForm;
-      if(this.type == this.SAT){
+        
+        this.form = this.formService.testForm;
+
         this.userSatSection3AnswerKeys = this.formService.satSection3AnswerKeys;
         this.userSatSection4AnswerKeys = this.formService.satSection4AnswerKeys;
 
@@ -54,8 +54,6 @@ export class SatTestResultComponent implements OnInit {
 
           }
         );
-      
-    }
     }
 
     

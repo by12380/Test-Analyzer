@@ -1,5 +1,7 @@
 <div class="container mt-5">
     <div class="test-form-width">
+        <h1 class="display-4">SAT Math Diagnostic</h1>
+        <a [href]="link" target="_blank"><button class="btn btn-light mb-5">Download Test Form</button></a>
         <form #f="ngForm" (ngSubmit)="store(f.value)">
             <h1>Section 3</h1>
             <div class="row">
@@ -81,7 +83,9 @@
                     </div>
               </div>
             </div>
-            <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Next</button>
+            <div>
+                <button class="btn btn-lg btn-primary m-5 float-right" type="submit">Finish Exam</button>                
+            </div>
         </form>
     </div>
 </div>

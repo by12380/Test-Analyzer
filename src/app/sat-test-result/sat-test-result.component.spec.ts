@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestResultComponent } from './sat-test-result.component';
+import { SatTestResultComponent } from './sat-test-result.component';
 
-describe('TestResultComponent', () => {
-  let component: TestResultComponent;
-  let fixture: ComponentFixture<TestResultComponent>;
+describe('SatTestResultComponent', () => {
+  let component: SatTestResultComponent;
+  let fixture: ComponentFixture<SatTestResultComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TestResultComponent ]
+      declarations: [ SatTestResultComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestResultComponent);
+    fixture = TestBed.createComponent(SatTestResultComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

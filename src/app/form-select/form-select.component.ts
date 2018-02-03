@@ -29,18 +29,16 @@ export class FormSelectComponent implements OnInit, OnDestroy {
 
   public submit(formValues) {
 
-    let testForm: string;
 
-    testForm = formValues.testForm;
-    this.formService.testForm = testForm;
+    this.formService.testForm = formValues.testForm.form
+    this.formService.link = formValues.testForm.link;
 
-    if (testForm.includes("SAT")) {
-      this.formService.type = "sat";
+    if (formValues.testForm.type == 'sat') {
 
       this.pageService.setPageNumber(3);
       this.router.navigateByUrl('/sat-answer-sheet');
     }
-    else if (testForm.includes("ACT")) {
+    else if (formValues.testForm.type == 'act') {
       //TODO: Set ACT Page Number
     }
     

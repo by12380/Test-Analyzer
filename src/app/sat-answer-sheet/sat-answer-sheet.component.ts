@@ -12,10 +12,13 @@ export class SatAnswerSheetComponent implements OnInit {
 
   readonly SECTION_3 = "section3_";
   readonly SECTION_4 = "section4_";
+  link: string;
 
   constructor(private formService: FormService, private pageService: PageService, private router: Router) {
     if (this.pageService.getPageNumber() < 3) {
       this.router.navigateByUrl('/');
+    } else {
+      this.link = this.formService.link;
     }
   }
 
@@ -126,7 +129,7 @@ export class SatAnswerSheetComponent implements OnInit {
 
     this.pageService.setPageNumber(4);
     
-    this.router.navigateByUrl('/test-result');
+    this.router.navigateByUrl('/sat-test-result');
   }
 
   private formToString (a: string, b: string, c: string, d:string): string {
