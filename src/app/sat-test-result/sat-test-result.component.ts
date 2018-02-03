@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'test-result',
-  templateUrl: './test-result.component.html',
-  styleUrls: ['./test-result.component.css']
+  selector: 'sat-test-result',
+  templateUrl: './sat-test-result.component.html',
+  styleUrls: ['./sat-test-result.component.css']
 })
-export class TestResultComponent implements OnInit {
+export class SatTestResultComponent implements OnInit {
 
   type;
   form;

@@ -15,7 +15,7 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { FormSelectComponent } from './form-select/form-select.component';
 import { SatAnswerSheetComponent } from './sat-answer-sheet/sat-answer-sheet.component';
-import { TestResultComponent } from './test-result/test-result.component';
+import { SatTestResultComponent } from './sat-test-result/sat-test-result.component';
 import { FormUpdateComponent } from './form-update/form-update.component';
 
 
@@ -25,7 +25,7 @@ import { FormUpdateComponent } from './form-update/form-update.component';
     RegistrationComponent,
     FormSelectComponent,
     SatAnswerSheetComponent,
-    TestResultComponent,
+    SatTestResultComponent,
     FormUpdateComponent
   ],
   imports: [
@@ -36,7 +36,7 @@ import { FormUpdateComponent } from './form-update/form-update.component';
       {path: 'registration', component: RegistrationComponent},
       {path: 'form-select', component: FormSelectComponent},
       {path: 'sat-answer-sheet', component: SatAnswerSheetComponent},
-      {path: 'test-result', component: TestResultComponent},
+      {path: 'test-result', component: SatTestResultComponent},
     ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
