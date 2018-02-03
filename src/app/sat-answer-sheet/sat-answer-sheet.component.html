@@ -1,12 +1,13 @@
 <div class="container mt-5">
     <div class="test-form-width">
         <form #f="ngForm" (ngSubmit)="store(f.value)">
+            <h1>Section 3</h1>
             <div class="row">
                 <div class="col-md-6">
                     <div *ngFor="let n of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">                   
                       <label class="col-2 col-form-label">{{n}}.</label>
                       <div class="form-check form-check-inline" *ngFor="let l of ['A','B','C','D']">
-                          <input ngModel class="form-check-input" type="radio" [name]="TEST_ANSWER + n" [id]="TEST_ANSWER + n" [value]="l">
+                          <input ngModel class="form-check-input" type="radio" [name]="SECTION_3 + n" [id]="SECTION_3 + n" [value]="l">
                           <label class="form-check-label">{{l}}</label>
                       </div>
                     </div>
@@ -15,7 +16,7 @@
                       <div class="" *ngFor="let m of [16,17,18,19,20]">
                           <label class="col-2 col-form-label">{{m}}.</label>
                           <div *ngFor="let c of ['a','b','c','d'];" class="form-check-inline">
-                              <select ngModel class="form-control mr-2" [name]="TEST_ANSWER + m + c" [id]="TEST_ANSWER + m + c">
+                              <select ngModel class="form-control mr-2" [name]="SECTION_3 + m + c" [id]="SECTION_3 + m + c">
                                   <option selected></option>
                                   <option>/</option>
                                   <option>. </option>
@@ -33,6 +34,52 @@
                           </div>
                       </div>
                 </div>
+            </div>
+
+            <h1 class="mt-5">Section 4</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div *ngFor="let n of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">                   
+                      <label class="col-2 col-form-label">{{n}}.</label>
+                      <div class="form-check form-check-inline" *ngFor="let l of ['A','B','C','D']">
+                          <input ngModel class="form-check-input" type="radio" [name]="SECTION_4 + n" [id]="SECTION_4 + n" [value]="l">
+                          <label class="form-check-label">{{l}}</label>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngFor="let n of [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]">                   
+                        <label class="col-2 col-form-label">{{n}}.</label>
+                        <div class="form-check form-check-inline" *ngFor="let l of ['A','B','C','D']">
+                            <input ngModel class="form-check-input" type="radio" [name]="SECTION_4 + n" [id]="SECTION_4 + n" [value]="l">
+                            <label class="form-check-label">{{l}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="" *ngFor="let m of [31,32,33,34,35,36,37,38]">
+                        <label class="col-2 col-form-label">{{m}}.</label>
+                        <div *ngFor="let c of ['a','b','c','d'];" class="form-check-inline">
+                            <select ngModel class="form-control mr-2" [name]="SECTION_4 + m + c" [id]="SECTION_4 + m + c">
+                                <option selected></option>
+                                <option>/</option>
+                                <option>. </option>
+                                <option>0</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                            </select>
+                        </div>
+                    </div>
+              </div>
             </div>
             <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Next</button>
         </form>

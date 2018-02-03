@@ -1,10 +1,2 @@
-<main *ngIf="pageNumber == 1 || pageNumber == 2">
-    <registration *ngIf="pageNumber == 1"></registration>
-    <form-select *ngIf="pageNumber == 2"></form-select>
-</main>
-<div *ngIf="pageNumber == 3 || pageNumber == 4">
-    <sat-answer-sheet *ngIf="pageNumber == 3"></sat-answer-sheet>
-    <test-result *ngIf="pageNumber == 4"></test-result>
-</div>
-<p>{{pageNumber}}</p>
+<router-outlet></router-outlet>
 

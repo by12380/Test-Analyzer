@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { PageService } from './../services/pageService/page.service';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -14,7 +15,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   emailQuery: Subscription;
 
-  constructor(private pageService: PageService, private db: AngularFireDatabase) {
+  constructor(private pageService: PageService, private db: AngularFireDatabase, private router: Router) {
   }
 
   ngOnInit() {
@@ -25,8 +26,10 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       users => {
         if (users.length == 0) {
           this.addUser(formValues);
-        }      
+        }
+
         this.pageService.setPageNumber(2);
+        this.router.navigateByUrl('/form-select');
       }
     );
   }

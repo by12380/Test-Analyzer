@@ -1,6 +1,82 @@
-<p>
-  <button class="btn btn-primary" (click)="send()">Submit</button>
-</p>
-<p>
-  <button class="btn btn-success" (click)="get()">Get</button>
-</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <h1 class="display-4">SAT Math Score</h1>
+        <mat-progress-spinner class="p-3" [value]="satMathPercentage" [diameter]="200"></mat-progress-spinner>
+        <h1 class="float-right display-4">{{satMathGrade}}</h1>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <hr />
+  <div class="row mt-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row">
+          <div class="col-6">
+              <h2>Section 3</h2>
+              <mat-progress-spinner [value]="satSection3Grade"></mat-progress-spinner>
+              <h3 class="float-right">{{satSection3CorrectCount}}/20</h3>
+          </div>
+          <div class="col-6">
+              <h2>Section 4</h2>
+              <mat-progress-spinner [value]="satSection4Grade"></mat-progress-spinner>
+              <h3 class="float-right">{{satSection4CorrectCount}}/38</h3>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<div class="container mt-5" style="font-size: 12px;">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Section 3</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question #</th>
+            <th scope="col">Your Answer</th>
+            <th scope="col">Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of officialSatSection3AnswerKeys; let i = index" [class.table-danger]="!checkAnswer(userSatSection3AnswerKeys[i], key)">
+            <th scope="row">{{i + 1}}</th>
+            <td><span *ngIf="!checkAnswer(userSatSection3AnswerKeys[i], key)">{{userSatSection3AnswerKeys[i]}}</span></td>
+            <td>{{key}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<div class="container mt-5" style="font-size: 12px;">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h1>Section 4</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Question #</th>
+              <th scope="col">Your Answer</th>
+              <th scope="col">Correct Answer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let key of officialSatSection4AnswerKeys; let i = index" [class.table-danger]="!checkAnswer(userSatSection4AnswerKeys[i], key)">
+              <th scope="row">{{i + 1}}</th>
+              <td><span *ngIf="!checkAnswer(userSatSection4AnswerKeys[i], key)">{{userSatSection4AnswerKeys[i]}}</span></td>
+              <td>{{key}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>

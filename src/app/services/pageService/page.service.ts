@@ -5,14 +5,15 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class PageService {
 
     private page: number = 1;
-    private pageSource = new BehaviorSubject<number>(this.page);
-    public pageNumber = this.pageSource.asObservable();
 
     constructor() { }
 
+    public getPageNumber () {
+        return this.page;
+    }
+    
     public setPageNumber (page: number) {
         this.page = page;
-        this.pageSource.next(this.page);
     }
 
 }

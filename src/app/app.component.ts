@@ -1,3 +1,4 @@
+import { Router, NavigationEnd } from '@angular/router';
 import { Component } from '@angular/core';
 import { PageService } from './services/pageService/page.service';
 
@@ -9,14 +10,16 @@ import { PageService } from './services/pageService/page.service';
 export class AppComponent {
   title = 'app';
 
-  public pageNumber = 1;
-
-  constructor(private pageService: PageService) {
-    pageService.pageNumber.subscribe( pageNumber => this.pageNumber = pageNumber);
+  constructor(private router: Router) {
   }
 
   ngOnInit(){
-
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+          return;
+      }
+      window.scrollTo(0, 0)
+  });
   }
   
 }

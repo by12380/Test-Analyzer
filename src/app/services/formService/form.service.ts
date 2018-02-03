@@ -42,13 +42,25 @@ export class FormService {
     
     
     
-    private _satAnswerKeys : string[];
-    public get satAnswerKeys() : string[] {
-        return this._satAnswerKeys;
+    
+    private _satSection3AnswerKeys : string[];
+    public get satSection3AnswerKeys() : string[] {
+        return this._satSection3AnswerKeys;
     }
-    public set satAnswerKeys(v : string[]) {
-        this._satAnswerKeys = v;
+    public set satSection3AnswerKeys(v : string[]) {
+        this._satSection3AnswerKeys = v;
     }
+
+    
+    private _satSection4AnswerKeys : string[];
+    public get satSection4AnswerKeys() : string[] {
+        return this._satSection4AnswerKeys;
+    }
+    public set satSection4AnswerKeys(v : string[]) {
+        this._satSection4AnswerKeys = v;
+    }
+    
+    
 
     
     
@@ -59,6 +71,16 @@ export class FormService {
     public set actAnswerKeys(v : string[]) {
         this._actAnswerKeys = v;
     }
+
+    
+    private _type : string;
+    public get type() : string {
+        return this._type;
+    }
+    public set type(v : string) {
+        this._type = v;
+    }
+    
     
     
     
