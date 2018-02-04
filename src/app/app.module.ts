@@ -37,6 +37,7 @@ import { FormUpdateComponent } from './form-update/form-update.component';
       {path: 'form-select', component: FormSelectComponent},
       {path: 'sat-answer-sheet', component: SatAnswerSheetComponent},
       {path: 'sat-test-result', component: SatTestResultComponent},
+      {path: 'form-update', component: FormUpdateComponent}
     ]),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,

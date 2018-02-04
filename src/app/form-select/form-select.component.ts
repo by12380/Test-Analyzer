@@ -22,18 +22,15 @@ export class FormSelectComponent implements OnInit, OnDestroy {
     }
   }
 
-  defaultOption = 1;
-
   ngOnInit() {
   }
 
   public submit(formValues) {
 
 
-    this.formService.testForm = formValues.testForm.form
-    this.formService.link = formValues.testForm.link;
+    this.formService.satTestForm = formValues.testForm;
 
-    if (formValues.testForm.type == 'sat') {
+    if (this.formService.satTestForm.type == 'sat') {
 
       this.pageService.setPageNumber(3);
       this.router.navigateByUrl('/sat-answer-sheet');

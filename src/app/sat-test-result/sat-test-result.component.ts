@@ -13,15 +13,10 @@ import { Router } from '@angular/router';
 })
 export class SatTestResultComponent implements OnInit {
 
-  type;
-  form;
   userSatSection3AnswerKeys = [];
   officialSatSection3AnswerKeys = [];
   userSatSection4AnswerKeys = [];
   officialSatSection4AnswerKeys = [];
-  readonly SAT = "sat";
-
-  timer;
 
   satMathGrade;
   satMathPercentage;
@@ -37,23 +32,16 @@ export class SatTestResultComponent implements OnInit {
       this.router.navigateByUrl('/');
     }
     else {
-        
-        this.form = this.formService.testForm;
 
         this.userSatSection3AnswerKeys = this.formService.satSection3AnswerKeys;
         this.userSatSection4AnswerKeys = this.formService.satSection4AnswerKeys;
 
-        this.db.list('/tests', ref => ref.orderByChild('form').equalTo(this.form)).valueChanges().subscribe(
-          test => {
-            this.officialSatSection3AnswerKeys = test[0]["answerKeys"]["section3"];
-            this.officialSatSection4AnswerKeys = test[0]["answerKeys"]["section4"];
+        this.officialSatSection3AnswerKeys = this.formService.satTestForm.answerKeys.section3;
+        this.officialSatSection4AnswerKeys = this.formService.satTestForm.answerKeys.section4;
 
-            this.satSection3Grade = this.gradeSatSection3();
-            this.satSection4Grade = this.gradeSatSection4();
-            this.satMathGrade = this.getSatMathTotalScore();
-
-          }
-        );
+        this.satSection3Grade = this.gradeSatSection3();
+        this.satSection4Grade = this.gradeSatSection4();
+        this.satMathGrade = this.getSatMathTotalScore();
     }
 
     

@@ -1,3 +1,4 @@
+import { TestForm } from './../../models/testForm';
 import { Injectable } from '@angular/core';
 
 @Injectable()
@@ -32,17 +33,6 @@ export class FormService {
     }
     
     
-    private _testForm : string;
-    public get testForm() : string {
-        return this._testForm;
-    }
-    public set testForm(v : string) {
-        this._testForm = v;
-    }
-    
-    
-    
-    
     private _satSection3AnswerKeys : string[];
     public get satSection3AnswerKeys() : string[] {
         return this._satSection3AnswerKeys;
@@ -70,13 +60,14 @@ export class FormService {
     }
 
     
-    private _link : string;
-    public get link() : string {
-        return this._link;
+    private _satTestForm : TestForm;
+    public get satTestForm() : TestForm {
+        return this._satTestForm;
     }
-    public set link(v : string) {
-        this._link = v;
+    public set satTestForm(v : TestForm) {
+        this._satTestForm = JSON.parse(JSON.stringify(v));
     }
+    
     
 
         

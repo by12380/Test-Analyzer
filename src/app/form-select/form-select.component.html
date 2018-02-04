@@ -2,7 +2,7 @@
     <div class="text-center">
         <form #f="ngForm" class="form-signin" (ngSubmit)="submit(f.value)">
           <h1 class="h3 mb-3 font-weight-normal">Please select a test to take</h1>
-          <select class="custom-select" [(ngModel)]="defaultOption" name="testForm">
+          <select class="custom-select" name="testForm" ngModel>
             <option [ngValue]="test" *ngFor="let test of tests$ | async">{{test.form}}</option>
           </select>
           <button class="btn btn-lg btn-primary btn-block mt-3" type="submit" [disabled]="!f.valid">Next</button>

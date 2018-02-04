@@ -18,7 +18,7 @@ export class SatAnswerSheetComponent implements OnInit {
     if (this.pageService.getPageNumber() < 3) {
       this.router.navigateByUrl('/');
     } else {
-      this.link = this.formService.link;
+      this.link = this.formService.satTestForm.link;
     }
   }
 
