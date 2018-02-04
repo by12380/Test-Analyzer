@@ -1,0 +1,96 @@
+<div class="container mt-5">
+    <div class="test-form-width">
+        <h1 class="display-4">ACT Math & Science Diagnostic</h1>
+        <a [href]="link" target="_blank"><button class="btn btn-light mb-5">Download Test Form</button></a>
+        <form #f="ngForm" (ngSubmit)="store(f.value)">
+            <h1 class="mt-5">Math - Section 2</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div *ngFor="let n of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">                   
+                      <label class="col-2 col-form-label">{{n}}.</label>
+                      <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                          <input ngModel class="form-check-input" type="radio" [name]="SECTION_2 + n" [id]="SECTION_2 + n" [value]="l">
+                          <label class="form-check-label">{{l}}</label>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngFor="let n of [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]">                   
+                        <label class="col-2 col-form-label">{{n}}.</label>
+                        <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                            <input ngModel class="form-check-input" type="radio" [name]="SECTION_2 + n" [id]="SECTION_2 + n" [value]="l">
+                            <label class="form-check-label">{{l}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    <div *ngFor="let n of [31,32,33,34,35,36,37,38,39,40,41,42,43,44,45]">                   
+                      <label class="col-2 col-form-label">{{n}}.</label>
+                      <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                          <input ngModel class="form-check-input" type="radio" [name]="SECTION_2 + n" [id]="SECTION_2 + n" [value]="l">
+                          <label class="form-check-label">{{l}}</label>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngFor="let n of [46,47,48,49,50,51,52,53,54,55,56,57,58,59,60]">                   
+                        <label class="col-2 col-form-label">{{n}}.</label>
+                        <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                            <input ngModel class="form-check-input" type="radio" [name]="SECTION_2 + n" [id]="SECTION_2 + n" [value]="l">
+                            <label class="form-check-label">{{l}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <h1 class="mt-5">Science - Section 4</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div *ngFor="let n of [1,2,3,4,5,6,7,8,9,10]">                   
+                      <label class="col-2 col-form-label">{{n}}.</label>
+                      <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                          <input ngModel class="form-check-input" type="radio" [name]="SECTION_2 + n" [id]="SECTION_2 + n" [value]="l">
+                          <label class="form-check-label">{{l}}</label>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngFor="let n of [11,12,13,14,15,16,17,18,19,20]">                   
+                        <label class="col-2 col-form-label">{{n}}.</label>
+                        <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                            <input ngModel class="form-check-input" type="radio" [name]="SECTION_2 + n" [id]="SECTION_2 + n" [value]="l">
+                            <label class="form-check-label">{{l}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-6">
+                    <div *ngFor="let n of [21,22,23,24,25,26,27,28,29,30]">                   
+                      <label class="col-2 col-form-label">{{n}}.</label>
+                      <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                          <input ngModel class="form-check-input" type="radio" [name]="SECTION_4 + n" [id]="SECTION_4 + n" [value]="l">
+                          <label class="form-check-label">{{l}}</label>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div *ngFor="let n of [31,32,33,34,35,36,37,38,39,40]">                   
+                        <label class="col-2 col-form-label">{{n}}.</label>
+                        <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                            <input ngModel class="form-check-input" type="radio" [name]="SECTION_4 + n" [id]="SECTION_4 + n" [value]="l">
+                            <label class="form-check-label">{{l}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-lg btn-primary m-5 float-right" type="submit">Finish Exam</button>                
+            </div>
+        </form>
+    </div>
+</div>

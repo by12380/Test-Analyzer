@@ -17,6 +17,7 @@ import { FormSelectComponent } from './form-select/form-select.component';
 import { SatAnswerSheetComponent } from './sat-answer-sheet/sat-answer-sheet.component';
 import { SatTestResultComponent } from './sat-test-result/sat-test-result.component';
 import { FormUpdateComponent } from './form-update/form-update.component';
+import { ActAnswerSheetComponent } from './act-answer-sheet/act-answer-sheet.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { FormUpdateComponent } from './form-update/form-update.component';
     FormSelectComponent,
     SatAnswerSheetComponent,
     SatTestResultComponent,
-    FormUpdateComponent
+    FormUpdateComponent,
+    ActAnswerSheetComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { FormUpdateComponent } from './form-update/form-update.component';
       {path: 'form-select', component: FormSelectComponent},
       {path: 'sat-answer-sheet', component: SatAnswerSheetComponent},
       {path: 'sat-test-result', component: SatTestResultComponent},
+      {path: 'act-answer-sheet', component: ActAnswerSheetComponent},
       {path: 'form-update', component: FormUpdateComponent}
     ]),
     AngularFireModule.initializeApp(environment.firebase),

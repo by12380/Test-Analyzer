@@ -1,0 +1,13 @@
+@media (min-width: 768px) { 
+    .test-form-width {
+        width: 768px;
+        margin: auto;
+    }
+}
+
+@media (min-width: 576px) { 
+    .test-form-width {
+        width: 576;
+        margin: auto;
+    }
+}
