@@ -19,8 +19,8 @@ export class FormUpdateComponent implements OnInit {
       link: "https://drive.google.com/open?id=1zE0-JnI-E_F9vl5q-_XzsuFi0m7pFnOh",
       type: "act",
       answerKeys: {
-        math: ['B', 'B', 'A', 'C', 'B', 'D', 'C', 'A', 'C', 'A', 'D', 'D', 'B', 'B', 'C', "9", "6,7,10", "14", "210", "2,7"],
-        science: ['C', 'A', 'D', 'C', 'C', 'D', 'A', 'B', 'B', 'C', 'A', 'C', 'B', 'C', 'B', 'D', 'D', 'B', 'D', 'B', 'B', 'A', 'D', 'C', 'A', 'C', 'A', 'D', 'A', 'D', "11", "10", "1/2,0.5,.5", "2", "20", "65", "88", "2.1"]
+        math: ['C', 'J', 'E', 'F', 'C', 'G', 'B', 'H', 'C', 'G', 'C', 'G', 'D', 'G', 'D', 'H', 'A', 'J', 'C', 'H', 'D', 'G', 'C', 'H', 'E', 'G', 'E', 'F', 'D', 'H', 'A', 'J', 'A', 'K', 'B', 'F', 'E', 'K', 'D', 'H', 'A', 'G', 'D', 'G', 'D', 'G', 'E', 'H', 'D', 'J', 'E', 'F', 'B', 'F', 'E', 'K', 'A', 'F', 'D', 'K'],
+        science: ['A', 'H', 'C', 'J', 'A', 'J', 'D', 'F', 'D', 'H', 'B', 'J', 'C', 'J', 'A', 'F', 'D', 'G', 'C', 'G', 'B', 'F', 'B', 'H', 'C', 'G', 'D', 'F', 'A', 'J', 'B', 'J', 'D', 'G', 'D', 'G', 'C', 'F', 'C', 'H']
       },
       score:{
         math: [1, 4, 6, 8, 10, 11, 12, 12, 13, 13, 14, 14, 14, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 18, 18, 19, 19, 20, 20, 21, 21, 22, 23, 23, 23, 24, 24, 25, 25, 25, 26, 26, 27, 27, 27, 27, 28, 28, 29, 29, 30, 30, 31, 32, 33, 34, 34, 35, 35, 36, 36],
@@ -35,7 +35,7 @@ export class FormUpdateComponent implements OnInit {
 
   temp(){
     this.db.list('/tests').push({
-      form: "Official SAT Maine 2017 Exam",
+      form: "Official Maine SAT April 2017 Exam",
       link: "https://www1.maine.gov/doe/assessment/math-ela/documents/800888-sat-school-day-qas-test-book-5msa09-april-2017-unlocked-final-120283.pdf",
       type: "act",
       answerKeys: {

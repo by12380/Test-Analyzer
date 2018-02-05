@@ -51,8 +51,8 @@
                 <div class="col-md-6">
                     <div *ngFor="let n of [1,2,3,4,5,6,7,8,9,10]">                   
                       <label class="col-2 col-form-label">{{n}}.</label>
-                      <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
-                          <input ngModel class="form-check-input" type="radio" [name]="SECTION_2 + n" [id]="SECTION_2 + n" [value]="l">
+                      <div class="form-check form-check-inline" *ngFor="let l of getScienceOptions(n)">
+                          <input ngModel class="form-check-input" type="radio" [name]="SECTION_4 + n" [id]="SECTION_4 + n" [value]="l">
                           <label class="form-check-label">{{l}}</label>
                       </div>
                     </div>
@@ -60,8 +60,8 @@
                 <div class="col-md-6">
                     <div *ngFor="let n of [11,12,13,14,15,16,17,18,19,20]">                   
                         <label class="col-2 col-form-label">{{n}}.</label>
-                        <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
-                            <input ngModel class="form-check-input" type="radio" [name]="SECTION_2 + n" [id]="SECTION_2 + n" [value]="l">
+                        <div class="form-check form-check-inline" *ngFor="let l of getScienceOptions(n)">
+                            <input ngModel class="form-check-input" type="radio" [name]="SECTION_4 + n" [id]="SECTION_4 + n" [value]="l">
                             <label class="form-check-label">{{l}}</label>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                 <div class="col-md-6">
                     <div *ngFor="let n of [21,22,23,24,25,26,27,28,29,30]">                   
                       <label class="col-2 col-form-label">{{n}}.</label>
-                      <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                      <div class="form-check form-check-inline" *ngFor="let l of getScienceOptions(n)">
                           <input ngModel class="form-check-input" type="radio" [name]="SECTION_4 + n" [id]="SECTION_4 + n" [value]="l">
                           <label class="form-check-label">{{l}}</label>
                       </div>
@@ -81,7 +81,7 @@
                 <div class="col-md-6">
                     <div *ngFor="let n of [31,32,33,34,35,36,37,38,39,40]">                   
                         <label class="col-2 col-form-label">{{n}}.</label>
-                        <div class="form-check form-check-inline" *ngFor="let l of getMathOptions(n)">
+                        <div class="form-check form-check-inline" *ngFor="let l of getScienceOptions(n)">
                             <input ngModel class="form-check-input" type="radio" [name]="SECTION_4 + n" [id]="SECTION_4 + n" [value]="l">
                             <label class="form-check-label">{{l}}</label>
                         </div>

@@ -26,7 +26,6 @@ export class SatAnswerSheetComponent implements OnInit {
   }
 
   store(formValues){
-    console.log(formValues);
 
     let satSection3AnswerKeys: string[] = [];
     let satSection4AnswerKeys: string[] = [];

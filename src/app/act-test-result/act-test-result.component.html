@@ -1,0 +1,73 @@
+<div class="container mt-5">
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <h1 class="display-4">ACT Math Score</h1>
+          <mat-progress-spinner class="p-3" [value]="mathPercentage" [diameter]="150"></mat-progress-spinner>
+          <h1 class="float-right display-4">{{mathScore}}</h1>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+  <hr />
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <h1 class="display-4">ACT Science Score</h1>
+          <mat-progress-spinner class="p-3" [value]="sciencePercentage" [diameter]="150"></mat-progress-spinner>
+          <h1 class="float-right display-4">{{scienceScore}}</h1>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<div class="container mt-5" style="font-size: 12px;">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Math - Section 2</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question #</th>
+            <th scope="col">Your Answer</th>
+            <th scope="col">Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of officialActSection2AnswerKeys; let i = index" [class.table-danger]="key != userActSection2AnswerKeys[i]">
+            <th scope="row">{{i + 1}}</th>
+            <td><span *ngIf="key != userActSection2AnswerKeys[i]">{{userActSection2AnswerKeys[i]}}</span></td>
+            <td>{{key}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<div class="container mt-5" style="font-size: 12px;">
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <h1>Science - Section 4</h1>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Question #</th>
+              <th scope="col">Your Answer</th>
+              <th scope="col">Correct Answer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let key of officialActSection4AnswerKeys; let i = index" [class.table-danger]="key != userActSection4AnswerKeys[i]">
+              <th scope="row">{{i + 1}}</th>
+              <td><span *ngIf="key != userActSection4AnswerKeys[i]">{{userActSection4AnswerKeys[i]}}</span></td>
+              <td>{{key}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>

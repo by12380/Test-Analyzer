@@ -1,5 +1,6 @@
-import { TestForm } from './../../models/testForm';
+import { ActTestForm } from './../../models/actTestForm';
 import { Injectable } from '@angular/core';
+import { SatTestForm } from '../../models/satTestForm';
 
 @Injectable()
 export class FormService {
@@ -51,22 +52,44 @@ export class FormService {
     }
     
     
-    private _actAnswerKeys : string[];
-    public get actAnswerKeys() : string[] {
-        return this._actAnswerKeys;
+    
+    private _actSection2AnswerKeys : string[];
+    public get actSection2AnswerKeys() : string[] {
+        return this._actSection2AnswerKeys;
     }
-    public set actAnswerKeys(v : string[]) {
-        this._actAnswerKeys = v;
+    public set actSection2AnswerKeys(v : string[]) {
+        this._actSection2AnswerKeys = JSON.parse(JSON.stringify(v));
+    }
+    
+    
+    private _actSection4AnswerKeys : string[];
+    public get actSection4AnswerKeys() : string[] {
+        return this._actSection4AnswerKeys;
+    }
+    public set actSection4AnswerKeys(v : string[]) {
+        this._actSection4AnswerKeys = JSON.parse(JSON.stringify(v));
+    }
+    
+
+    
+    private _satTestForm : SatTestForm;
+    public get satTestForm() : SatTestForm {
+        return this._satTestForm;
+    }
+    public set satTestForm(v : SatTestForm) {
+        this._satTestForm = JSON.parse(JSON.stringify(v));
     }
 
     
-    private _satTestForm : TestForm;
-    public get satTestForm() : TestForm {
-        return this._satTestForm;
+    private _actTestForm : ActTestForm;
+    public get actTestForm() : ActTestForm {
+        return this._actTestForm;
     }
-    public set satTestForm(v : TestForm) {
-        this._satTestForm = JSON.parse(JSON.stringify(v));
+    public set actTestForm(v : ActTestForm) {
+        this._actTestForm = JSON.parse(JSON.stringify(v));
     }
+    
+    
     
     
 

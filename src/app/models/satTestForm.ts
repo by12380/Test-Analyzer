@@ -1,4 +1,4 @@
-export interface TestForm {
+export interface SatTestForm {
     form: string;
     link: string;
     type: string;

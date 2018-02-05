@@ -13,10 +13,11 @@ import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
 export class FormSelectComponent implements OnInit, OnDestroy {
 
   tests$;
+  defaultForm = {};
 
   constructor(private pageService: PageService, private db: AngularFireDatabase, private formService: FormService, private router: Router) {
     this.tests$ = db.list('/tests').valueChanges();
-    console.log(this.pageService.getPageNumber());
+    
     if (this.pageService.getPageNumber() < 2) {
       this.router.navigateByUrl('/');
     }
@@ -25,18 +26,21 @@ export class FormSelectComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
+  byForm(o1, o2){
+    return o1.form == "Official Maine SAT April 2017 Exam";
+  }
+
   public submit(formValues) {
 
-
-    this.formService.satTestForm = formValues.testForm;
-
-    if (this.formService.satTestForm.type == 'sat') {
-
+    if (formValues.testForm.type == 'sat') {
+      this.formService.satTestForm = formValues.testForm;
       this.pageService.setPageNumber(3);
       this.router.navigateByUrl('/sat-answer-sheet');
     }
     else if (formValues.testForm.type == 'act') {
-      //TODO: Set ACT Page Number
+      this.formService.actTestForm = formValues.testForm;
+      this.pageService.setPageNumber(3);
+      this.router.navigateByUrl('/act-answer-sheet');
     }
     
     
