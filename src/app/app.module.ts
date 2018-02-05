@@ -20,7 +20,7 @@ import { SatTestResultComponent } from './sat-test-result/sat-test-result.compon
 import { FormUpdateComponent } from './form-update/form-update.component';
 import { ActAnswerSheetComponent } from './act-answer-sheet/act-answer-sheet.component';
 import { ActTestResultComponent } from './act-test-result/act-test-result.component';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,8 @@ import { ActTestResultComponent } from './act-test-result/act-test-result.compon
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgbModule.forRoot()
   ],
   providers: [
     PageService,

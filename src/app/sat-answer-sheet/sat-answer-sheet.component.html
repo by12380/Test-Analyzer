@@ -2,7 +2,7 @@
     <div class="test-form-width">
         <h1 class="display-4">SAT Math Diagnostic</h1>
         <a [href]="link" target="_blank"><button class="btn btn-light mb-5">Download Test Form</button></a>
-        <form #f="ngForm" (ngSubmit)="store(f.value)">
+        <form #f="ngForm" (ngSubmit)="store(f.value, modal)">
             <h1>Section 3</h1>
             <div class="row">
                 <div class="col-md-6">
@@ -89,3 +89,13 @@
         </form>
     </div>
 </div>
+
+<ng-template #modal let-c="close" let-d="dismiss">
+    <div class="modal-body">
+        <p class="lead">Are you sure you want to submit your test?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="d('no')">Back to test</button>
+        <button type="button" class="btn btn-outline-primary" (click)="c('yes')">Submit test</button>
+    </div>
+</ng-template>
