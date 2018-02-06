@@ -14,6 +14,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class RegistrationComponent implements OnInit, OnDestroy {
 
   emailQuery: Subscription;
+  loading = false;
 
   constructor(private pageService: PageService, private db: AngularFireDatabase, private router: Router) {
   }
@@ -22,6 +23,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
 
   async validate(formValues) {
+    this.loading = true;
     this.emailQuery = await this.db.list('/users', ref => ref.orderByChild('email').equalTo(formValues.email)).valueChanges().subscribe( 
       users => {
         if (users.length == 0) {
@@ -30,6 +32,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
         this.pageService.setPageNumber(2);
         this.router.navigateByUrl('/form-select');
+        this.loading = false;
       }
     );
   }

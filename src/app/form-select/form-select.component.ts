@@ -43,7 +43,6 @@ export class FormSelectComponent implements OnInit, OnDestroy {
       this.router.navigateByUrl('/act-answer-sheet');
     }
     
-    
   }
 
   ngOnDestroy(){
