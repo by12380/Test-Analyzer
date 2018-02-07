@@ -1,3 +1,5 @@
+import { AngularFireDatabase } from 'angularfire2/database';
+import { UserService } from './../services/userService/user.service';
 import { Component, OnInit } from '@angular/core';
 import { FormService } from '../services/formService/form.service';
 import { PageService } from '../services/pageService/page.service';
@@ -16,8 +18,10 @@ export class ActAnswerSheetComponent implements OnInit {
   link;
 
   constructor(
+      private userService: UserService,
       private formService: FormService, private pageService: PageService,
-      private router: Router, private modalService: NgbModal
+      private router: Router, private modalService: NgbModal,
+      private db: AngularFireDatabase
   ) {
     if (this.pageService.getPageNumber() < 3) {
       this.router.navigateByUrl('/');
@@ -65,6 +69,13 @@ export class ActAnswerSheetComponent implements OnInit {
           }
 
           this.formService.actSection4AnswerKeys = actSection4AnswerKeys;
+
+          this.db.object("/users/" + this.userService.userId).update({
+            act: {
+              math: actSection2AnswerKeys,
+              science: actSection4AnswerKeys
+            }
+          })
 
           this.pageService.setPageNumber(4);
           this.router.navigateByUrl("/act-test-result");

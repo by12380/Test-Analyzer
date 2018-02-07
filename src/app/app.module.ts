@@ -1,3 +1,4 @@
+import { UserService } from './services/userService/user.service';
 import { ActTestForm } from './models/actTestForm';
 import { FormService } from './services/formService/form.service';
 import { environment } from './../environments/environment';
@@ -54,7 +55,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   providers: [
     PageService,
-    FormService
+    FormService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })

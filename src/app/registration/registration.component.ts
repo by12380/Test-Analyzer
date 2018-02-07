@@ -1,3 +1,4 @@
+import { UserService } from './../services/userService/user.service';
 import { Router } from '@angular/router';
 import { PageService } from './../services/pageService/page.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +17,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   emailQuery: Subscription;
   loading = false;
 
-  constructor(private pageService: PageService, private db: AngularFireDatabase, private router: Router) {
+  constructor(private userService: UserService, private pageService: PageService, private db: AngularFireDatabase, private router: Router) {
   }
 
   ngOnInit() {
@@ -24,10 +25,12 @@ export class RegistrationComponent implements OnInit, OnDestroy {
 
   async validate(formValues) {
     this.loading = true;
-    this.emailQuery = await this.db.list('/users', ref => ref.orderByChild('email').equalTo(formValues.email)).valueChanges().subscribe( 
+    this.emailQuery = await this.db.list('/users', ref => ref.orderByChild('email').equalTo(formValues.email)).snapshotChanges().subscribe( 
       users => {
         if (users.length == 0) {
           this.addUser(formValues);
+        } else {
+          this.userService.userId = users[0].key;
         }
 
         this.pageService.setPageNumber(2);
@@ -42,7 +45,9 @@ export class RegistrationComponent implements OnInit, OnDestroy {
       firstname: formValues.firstName,
       lastName: formValues.lastName,
       email: formValues.email
-    }).then( users => console.log(users));
+    }).then( user => {
+      this.userService.userId = user.key;
+    });
   }
 
   ngOnDestroy() {

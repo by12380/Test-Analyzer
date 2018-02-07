@@ -1,3 +1,5 @@
+import { UserService } from './../services/userService/user.service';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { PageService } from './../services/pageService/page.service';
 import { FormService } from './../services/formService/form.service';
 import { Component, OnInit } from '@angular/core';
@@ -16,8 +18,10 @@ export class SatAnswerSheetComponent implements OnInit {
   link: string;
 
   constructor(
+      private userService: UserService,
       private formService: FormService, private pageService: PageService,
-      private router: Router, private modalService: NgbModal
+      private router: Router, private modalService: NgbModal,
+      private db: AngularFireDatabase
   ){
     if (this.pageService.getPageNumber() < 3) {
       this.router.navigateByUrl('/');
@@ -132,6 +136,13 @@ export class SatAnswerSheetComponent implements OnInit {
             formValues.section4_38c, formValues.section4_38d,));
         
           this.formService.satSection4AnswerKeys  = satSection4AnswerKeys;
+
+          this.db.object("/users/" + this.userService.userId).update({
+            sat: {
+              section3: satSection3AnswerKeys,
+              section4: satSection4AnswerKeys
+            }
+          })
 
           this.pageService.setPageNumber(4);
           
