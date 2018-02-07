@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:gh": "ng build --prod --base-href='https://by12380.github.io/Test-Analyzer/' && sudo ngh"
+    "deploy:gh": "ng build --prod --base-href='http://cloud.thetutoringspotwalnut.com/' && sudo ngh"
   },
   "private": true,
   "dependencies": {
