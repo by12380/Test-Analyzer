@@ -2,9 +2,40 @@
   <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
+        <h1 class="display-4">SAT English Score</h1>
+        <mat-progress-spinner class="p-3" [value]="satEnglishPercentage" [diameter]="200"></mat-progress-spinner>
+        <h1 class="float-right display-4">{{satEnglishScore}}</h1>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+  <hr />
+  <div class="row mt-5">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="row">
+          <div class="col-6">
+              <h2>Reading</h2>
+              <mat-progress-spinner [value]="satSection1Percentage"></mat-progress-spinner>
+              <h3 class="float-right">{{satSection1CorrectCount}}/52</h3>
+          </div>
+          <div class="col-6">
+              <h2>Writing</h2>
+              <mat-progress-spinner [value]="satSection2Percentage"></mat-progress-spinner>
+              <h3 class="float-right">{{satSection2CorrectCount}}/44</h3>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
         <h1 class="display-4">SAT Math Score</h1>
         <mat-progress-spinner class="p-3" [value]="satMathPercentage" [diameter]="200"></mat-progress-spinner>
-        <h1 class="float-right display-4">{{satMathGrade}}</h1>
+        <h1 class="float-right display-4">{{satMathScore}}</h1>
     </div>
     <div class="col-md-2"></div>
   </div>
@@ -15,12 +46,12 @@
       <div class="row">
           <div class="col-6">
               <h2>Section 3</h2>
-              <mat-progress-spinner [value]="satSection3Grade"></mat-progress-spinner>
+              <mat-progress-spinner [value]="satSection3Percentage"></mat-progress-spinner>
               <h3 class="float-right">{{satSection3CorrectCount}}/20</h3>
           </div>
           <div class="col-6">
               <h2>Section 4</h2>
-              <mat-progress-spinner [value]="satSection4Grade"></mat-progress-spinner>
+              <mat-progress-spinner [value]="satSection4Percentage"></mat-progress-spinner>
               <h3 class="float-right">{{satSection4CorrectCount}}/38</h3>
           </div>
       </div>
@@ -29,6 +60,66 @@
   </div>
 </div>
 <hr />
+
+<!-- Start of Section 1 -->
+<div class="container mt-5" style="font-size: 12px;">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Reading - Section 1</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question #</th>
+            <th scope="col">Your Answer</th>
+            <th scope="col">Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of officialSatSection1AnswerKeys; let i = index" [class.table-danger]="!checkAnswer(userSatSection1AnswerKeys[i], key)">
+            <th scope="row">{{i + 1}}</th>
+            <td><span *ngIf="!checkAnswer(userSatSection1AnswerKeys[i], key)">{{userSatSection1AnswerKeys[i]}}</span></td>
+            <td>{{key}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<!-- End of Section 1 -->
+
+<!-- Start of Section 2 -->
+<div class="container mt-5" style="font-size: 12px;">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Section 2</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question #</th>
+            <th scope="col">Your Answer</th>
+            <th scope="col">Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of officialSatSection2AnswerKeys; let i = index" [class.table-danger]="!checkAnswer(userSatSection2AnswerKeys[i], key)">
+            <th scope="row">{{i + 1}}</th>
+            <td><span *ngIf="!checkAnswer(userSatSection2AnswerKeys[i], key)">{{userSatSection2AnswerKeys[i]}}</span></td>
+            <td>{{key}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<!-- End of Section 2 -->
+
+<!-- Start of Section 3 -->
 <div class="container mt-5" style="font-size: 12px;">
   <div class="row">
     <div class="col-md-2"></div>
@@ -55,6 +146,7 @@
   </div>
 </div>
 <hr />
+<!-- End of Section 3 -->
 <div class="container mt-5" style="font-size: 12px;">
     <div class="row">
       <div class="col-md-2"></div>

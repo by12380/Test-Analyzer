@@ -13,8 +13,21 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class SatAnswerSheetComponent implements OnInit {
 
+  readonly SHOW_BUBBLE_SHEET = 'Show Bubble Sheet';
+  readonly HIDE_BUBBLE_SHEET = 'Hide Bubble Sheet';
+  readonly SECTION_1 = "section1_";
+  readonly SECTION_2 = "section2_";
   readonly SECTION_3 = "section3_";
   readonly SECTION_4 = "section4_";
+
+  public isCollapsedSection1 = true;
+  public section1CollapseStatus = this.SHOW_BUBBLE_SHEET;
+  public isCollapsedSection2 = true;
+  public section2CollapseStatus = this.SHOW_BUBBLE_SHEET;
+  public isCollapsedSection3 = true;
+  public section3CollapseStatus = this.SHOW_BUBBLE_SHEET;
+  public isCollapsedSection4 = true;
+  public section4CollapseStatus = this.SHOW_BUBBLE_SHEET;
   link: string;
 
   constructor(
@@ -33,112 +46,113 @@ export class SatAnswerSheetComponent implements OnInit {
   ngOnInit() {
   }
 
+  collapseSection1(){
+    this.isCollapsedSection1 = !this.isCollapsedSection1;
+    if (this.isCollapsedSection1 == true) {
+      this.section1CollapseStatus = this.SHOW_BUBBLE_SHEET
+    }
+    else {
+      this.section1CollapseStatus = this.HIDE_BUBBLE_SHEET;
+    }
+  }
+
+  collapseSection2(){
+    this.isCollapsedSection2 = !this.isCollapsedSection2;
+    if (this.isCollapsedSection2 == true) {
+      this.section2CollapseStatus = this.SHOW_BUBBLE_SHEET
+    }
+    else {
+      this.section2CollapseStatus = this.HIDE_BUBBLE_SHEET;
+    }
+  }
+
+  collapseSection3(){
+    this.isCollapsedSection3 = !this.isCollapsedSection3;
+    if (this.isCollapsedSection3 == true) {
+      this.section3CollapseStatus = this.SHOW_BUBBLE_SHEET
+    }
+    else {
+      this.section3CollapseStatus = this.HIDE_BUBBLE_SHEET;
+    }
+  }
+
+  collapseSection4(){
+    this.isCollapsedSection4 = !this.isCollapsedSection4;
+    if (this.isCollapsedSection4 == true) {
+      this.section4CollapseStatus = this.SHOW_BUBBLE_SHEET
+    }
+    else {
+      this.section4CollapseStatus = this.HIDE_BUBBLE_SHEET;
+    }
+  }
+
   store(formValues, modal){
 
+    let satSection1AnswerKeys: string[] = [];
+    let satSection2AnswerKeys: string[] = [];
     let satSection3AnswerKeys: string[] = [];
     let satSection4AnswerKeys: string[] = [];
 
     this.modalService.open(modal).result.then( result => {
       if (result == "yes") {
 
-          satSection3AnswerKeys.push(formValues.section3_1);
-          satSection3AnswerKeys.push(formValues.section3_2);
-          satSection3AnswerKeys.push(formValues.section3_3);
-          satSection3AnswerKeys.push(formValues.section3_4);
-          satSection3AnswerKeys.push(formValues.section3_5);
-          satSection3AnswerKeys.push(formValues.section3_6);
-          satSection3AnswerKeys.push(formValues.section3_7);
-          satSection3AnswerKeys.push(formValues.section3_8);
-          satSection3AnswerKeys.push(formValues.section3_9);
-          satSection3AnswerKeys.push(formValues.section3_10);
-          satSection3AnswerKeys.push(formValues.section3_11);
-          satSection3AnswerKeys.push(formValues.section3_12);
-          satSection3AnswerKeys.push(formValues.section3_13);
-          satSection3AnswerKeys.push(formValues.section3_14);
-          satSection3AnswerKeys.push(formValues.section3_15);
+          for (let i = 1; i <= 52; i++) {
+            satSection1AnswerKeys.push(formValues[this.SECTION_1 + i])
+          }
 
-          satSection3AnswerKeys.push(this.formToString(
-            formValues.section3_16a, formValues.section3_16b,
-            formValues.section3_16c, formValues.section3_16d,));
-          
-          satSection3AnswerKeys.push(this.formToString(
-            formValues.section3_17a, formValues.section3_17b,
-            formValues.section3_17c, formValues.section3_17d,));
+          this.formService.satSection1AnswerKeys  = satSection1AnswerKeys;
 
-          satSection3AnswerKeys.push(this.formToString(
-            formValues.section3_18a, formValues.section3_18b,
-            formValues.section3_18c, formValues.section3_18d,));
+          for (let i = 1; i <= 44; i++) {
+            satSection2AnswerKeys.push(formValues[this.SECTION_2 + i])
+          }
 
-          satSection3AnswerKeys.push(this.formToString(
-            formValues.section3_19a, formValues.section3_19b,
-            formValues.section3_19c, formValues.section3_19d,));
-          
-          satSection3AnswerKeys.push(this.formToString(
-            formValues.section3_20a, formValues.section3_20b,
-            formValues.section3_20c, formValues.section3_20d,));
+          this.formService.satSection2AnswerKeys  = satSection2AnswerKeys;
+
+          for (let i = 1; i <= 15; i++) {
+            satSection3AnswerKeys.push(formValues[this.SECTION_3 + i])
+          }
+
+          for (let i = 16; i <= 20; i++) {
+              satSection3AnswerKeys.push(this.formToString(
+                  formValues[this.SECTION_3 + i + 'a'], 
+                  formValues[this.SECTION_3 + i + 'b'],
+                  formValues[this.SECTION_3 + i + 'c'],
+                  formValues[this.SECTION_3 + i + 'd']
+                )
+              );
+          }
 
           this.formService.satSection3AnswerKeys  = satSection3AnswerKeys;
 
-          satSection4AnswerKeys.push(formValues.section4_1);
-          satSection4AnswerKeys.push(formValues.section4_2);
-          satSection4AnswerKeys.push(formValues.section4_3);
-          satSection4AnswerKeys.push(formValues.section4_4);
-          satSection4AnswerKeys.push(formValues.section4_5);
-          satSection4AnswerKeys.push(formValues.section4_6);
-          satSection4AnswerKeys.push(formValues.section4_7);
-          satSection4AnswerKeys.push(formValues.section4_8);
-          satSection4AnswerKeys.push(formValues.section4_9);
-          satSection4AnswerKeys.push(formValues.section4_10);
-          satSection4AnswerKeys.push(formValues.section4_11);
-          satSection4AnswerKeys.push(formValues.section4_12);
-          satSection4AnswerKeys.push(formValues.section4_13);
-          satSection4AnswerKeys.push(formValues.section4_14);
-          satSection4AnswerKeys.push(formValues.section4_15);
-          satSection4AnswerKeys.push(formValues.section4_16);
-          satSection4AnswerKeys.push(formValues.section4_17);
-          satSection4AnswerKeys.push(formValues.section4_18);
-          satSection4AnswerKeys.push(formValues.section4_19);
-          satSection4AnswerKeys.push(formValues.section4_20);
-          satSection4AnswerKeys.push(formValues.section4_21);
-          satSection4AnswerKeys.push(formValues.section4_22);
-          satSection4AnswerKeys.push(formValues.section4_23);
-          satSection4AnswerKeys.push(formValues.section4_24);
-          satSection4AnswerKeys.push(formValues.section4_25);
-          satSection4AnswerKeys.push(formValues.section4_26);
-          satSection4AnswerKeys.push(formValues.section4_27);
-          satSection4AnswerKeys.push(formValues.section4_28);
-          satSection4AnswerKeys.push(formValues.section4_29);
-          satSection4AnswerKeys.push(formValues.section4_30);
+          for (let i = 1; i <= 30; i++) {
+            satSection4AnswerKeys.push(formValues[this.SECTION_4 + i])
+          }
 
-          satSection4AnswerKeys.push(this.formToString(
-            formValues.section4_31a, formValues.section4_31b,
-            formValues.section4_31c, formValues.section4_31d,));
-          satSection4AnswerKeys.push(this.formToString(
-            formValues.section4_32a, formValues.section4_32b,
-            formValues.section4_32c, formValues.section4_32d,));
-          satSection4AnswerKeys.push(this.formToString(
-            formValues.section4_33a, formValues.section4_33b,
-            formValues.section4_33c, formValues.section4_33d,));
-          satSection4AnswerKeys.push(this.formToString(
-            formValues.section4_34a, formValues.section4_34b,
-            formValues.section4_34c, formValues.section4_34d,));
-          satSection4AnswerKeys.push(this.formToString(
-            formValues.section4_35a, formValues.section4_35b,
-            formValues.section4_35c, formValues.section4_35d,));
-          satSection4AnswerKeys.push(this.formToString(
-            formValues.section4_36a, formValues.section4_36b,
-            formValues.section4_36c, formValues.section4_36d,));
-          satSection4AnswerKeys.push(this.formToString(
-            formValues.section4_37a, formValues.section4_37b,
-            formValues.section4_37c, formValues.section4_37d,));
-          satSection4AnswerKeys.push(this.formToString(
-            formValues.section4_38a, formValues.section4_38b,
-            formValues.section4_38c, formValues.section4_38d,));
+          for (let i = 31; i <= 38; i++) {
+            satSection4AnswerKeys.push(this.formToString(
+                formValues[this.SECTION_4 + i + 'a'], 
+                formValues[this.SECTION_4 + i + 'b'],
+                formValues[this.SECTION_4 + i + 'c'],
+                formValues[this.SECTION_4 + i + 'd']
+              )
+            );
+        }
         
           this.formService.satSection4AnswerKeys  = satSection4AnswerKeys;
 
           this.db.object("/users/" + this.userService.userId).update({
             sat: {
+              section1: satSection1AnswerKeys,
+              section2: satSection2AnswerKeys,
+              section3: satSection3AnswerKeys,
+              section4: satSection4AnswerKeys
+            }
+          })
+
+          this.db.object("/users/" + this.userService.userId).update({
+            sat: {
+              section1: satSection1AnswerKeys,
+              section2: satSection2AnswerKeys,
               section3: satSection3AnswerKeys,
               section4: satSection4AnswerKeys
             }

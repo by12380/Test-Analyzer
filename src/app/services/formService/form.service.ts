@@ -34,6 +34,24 @@ export class FormService {
     }
     
     
+    private _satSection1AnswerKeys : string[];
+    public get satSection1AnswerKeys() : string[] {
+        return this._satSection1AnswerKeys;
+    }
+    public set satSection1AnswerKeys(v : string[]) {
+        this._satSection1AnswerKeys = v;
+    }
+
+    
+    private _satSection2AnswerKeys : string[];
+    public get satSection2AnswerKeys() : string[] {
+        return this._satSection2AnswerKeys;
+    }
+    public set satSection2AnswerKeys(v : string[]) {
+        this._satSection2AnswerKeys = v;
+    }
+    
+    
     private _satSection3AnswerKeys : string[];
     public get satSection3AnswerKeys() : string[] {
         return this._satSection3AnswerKeys;
@@ -52,6 +70,14 @@ export class FormService {
     }
     
     
+    private _actSection1AnswerKeys : string[];
+    public get actSection1AnswerKeys() : string[] {
+        return this._actSection1AnswerKeys;
+    }
+    public set actSection1AnswerKeys(v : string[]) {
+        this._actSection1AnswerKeys = v;
+    }
+    
     
     private _actSection2AnswerKeys : string[];
     public get actSection2AnswerKeys() : string[] {
@@ -59,6 +85,15 @@ export class FormService {
     }
     public set actSection2AnswerKeys(v : string[]) {
         this._actSection2AnswerKeys = JSON.parse(JSON.stringify(v));
+    }
+
+    
+    private _actSection3AnswerKeys : string[];
+    public get actSection3AnswerKeys() : string[] {
+        return this._actSection3AnswerKeys;
+    }
+    public set actSection3AnswerKeys(v : string[]) {
+        this._actSection3AnswerKeys = v;
     }
     
     

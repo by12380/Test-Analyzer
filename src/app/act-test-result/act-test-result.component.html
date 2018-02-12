@@ -2,9 +2,29 @@
   <div class="row">
       <div class="col-md-2"></div>
       <div class="col-md-8">
+          <h1 class="display-4">ACT English Score</h1>
+          <mat-progress-spinner class="p-3" [value]="englishPercentage" [diameter]="150"></mat-progress-spinner>
+          <h1 class="float-right display-4">{{englishScore}}</h1>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+  <hr />
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
           <h1 class="display-4">ACT Math Score</h1>
           <mat-progress-spinner class="p-3" [value]="mathPercentage" [diameter]="150"></mat-progress-spinner>
           <h1 class="float-right display-4">{{mathScore}}</h1>
+      </div>
+      <div class="col-md-2"></div>
+  </div>
+  <hr />
+  <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+          <h1 class="display-4">ACT Reading Score</h1>
+          <mat-progress-spinner class="p-3" [value]="readingPercentage" [diameter]="150"></mat-progress-spinner>
+          <h1 class="float-right display-4">{{readingScore}}</h1>
       </div>
       <div class="col-md-2"></div>
   </div>
@@ -20,6 +40,37 @@
   </div>
 </div>
 <hr />
+
+<!-- Start of English Section -->
+<div class="container mt-5" style="font-size: 12px;">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>English - Section 1</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question #</th>
+            <th scope="col">Your Answer</th>
+            <th scope="col">Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of officialActSection1AnswerKeys; let i = index" [class.table-danger]="key != userActSection1AnswerKeys[i]">
+            <th scope="row">{{i + 1}}</th>
+            <td><span *ngIf="key != userActSection1AnswerKeys[i]">{{userActSection1AnswerKeys[i]}}</span></td>
+            <td>{{key}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<!-- End of English Section -->
+
+<!-- Start of Math Section -->
 <div class="container mt-5" style="font-size: 12px;">
   <div class="row">
     <div class="col-md-2"></div>
@@ -46,6 +97,38 @@
   </div>
 </div>
 <hr />
+<!-- End of Math Section -->
+
+<!-- Start of Reading Section -->
+<div class="container mt-5" style="font-size: 12px;">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Reading - Section 3</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Question #</th>
+            <th scope="col">Your Answer</th>
+            <th scope="col">Correct Answer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let key of officialActSection3AnswerKeys; let i = index" [class.table-danger]="key != userActSection3AnswerKeys[i]">
+            <th scope="row">{{i + 1}}</th>
+            <td><span *ngIf="key != userActSection3AnswerKeys[i]">{{userActSection3AnswerKeys[i]}}</span></td>
+            <td>{{key}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<hr />
+<!-- End of Reading Section -->
+
+<!-- Start of Science Section -->
 <div class="container mt-5" style="font-size: 12px;">
     <div class="row">
       <div class="col-md-2"></div>
@@ -71,3 +154,4 @@
       <div class="col-md-2"></div>
     </div>
   </div>
+  <!-- End of Science Scetion -->
